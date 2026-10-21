@@ -109,9 +109,11 @@ void printInfo(List L) {
     *      call the view_data function from my_data.h to print the info
     */
     //-------------your code here-------------
-    cout<<"your code here"<<endl;
-
-
+    address P = first(L);
+    while (P != NULL) {
+        cout << info(P) << " ";
+        P = next(P);
+    }
     //----------------------------------------
     cout<<endl;
 }
@@ -124,11 +126,11 @@ void insertAfter(List &L, address Prec, address P) {
     *      pointed by pointer Prec
     */
     //-------------your code here-------------
-    cout<<"your code here"<<endl;
-
+    next(P) = next(Prec);
+    next(Prec) = P;
     //----------------------------------------
-
 }
+
 void deleteAfter(List &L, address Prec, address &P) {
     /**
     * IS : Prec is not NULL
@@ -136,7 +138,13 @@ void deleteAfter(List &L, address Prec, address &P) {
     *      is removed and pointed by pointer P
     */
     //-------------your code here-------------
-    cout<<"your code here"<<endl;
+     if (Prec != NULL && next(Prec) != NULL) {
+        P = next(Prec);
+        next(Prec) = next(P);
+        next(P) = NULL;
+    } else {
+        P = NULL;
+    }
 
 
     //----------------------------------------
